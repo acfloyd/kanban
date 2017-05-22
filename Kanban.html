@@ -35,53 +35,10 @@
 			ev.target.appendChild(document.getElementById(data));
 		}
 
-		// Click
-		function selectItem(id)
+		// Buttons
+		function AddNewItem()
 		{
-			var elem = document.getElementById(id);
-			if (elem.className.indexOf("selected") == -1)
-			{
-				AddClassToElement(elem, "selected");
-			}
-			else
-			{
-				RemoveClassFromElement(elem, "selected");
-			}
-		}
-
-		// buttons
-		function moveLeft()
-		{
-			var elems = document.getElementsByClassName("selected");
-			var length = elems.length
-			//alert("Length: " + length);
-			// move them
-			for (var i = 0; i < length; i++)
-			{
-				document.getElementById("regular").appendChild(elems.item(i));
-			}
-			// now unselect them
-			for (var i = 0; i < length; i++)
-			{
-				RemoveClassFromElement(elems.item(0), "selected");
-			}
-		}
-		// Why does moveLeft use elems.item(i) and moveRight use elems.item(0)?
-		// Only some of them move over otherwise... No idea why that is
-		function moveRight()
-		{
-			var elems = document.getElementsByClassName("selected");
-			var length = elems.length
-			// move them
-			for (var i = 0; i < length; i++)
-			{
-				document.getElementById("rare").appendChild(elems.item(0));
-			}
-			// now unselect them
-			for (var i = 0; i < length; i++)
-			{
-				RemoveClassFromElement(elems.item(0), "selected");
-			}
+			alert("Not implemented yet");
 		}
 
 		// helpers
@@ -203,6 +160,9 @@
 				</td>
 			</tr>
 		</table>
+		<div>
+			<button onclick="AddNewItem()">Add new Item</button>
+		</div>
 	</main>
 	<!--<br />-->
 	<!--<img id="drag1" src="dancing-banana.gif" draggable="true" ondragstart="drag(event)" alt="dancing banana" />-->

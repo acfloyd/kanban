@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Prototype Template</title>
+	<meta name="description" content="A template for a Skeleton.css-based prototype.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="styles/skeleton.css">
+	<script src="scripts/jquery-3.0.0.min.js"></script>
+	<script src="scripts/skeleton.js"></script>
+	<script>
+		$(document).ready(function ()
+		{
+			// Put any javascript that should fire on page load here
+		});
+
+		// Put your javascript functions here
+
+		// Drag and Drop
+		function allowDrop(ev)
+		{
+			ev.preventDefault();
+		}
+
+		function drag(ev)
+		{
+			ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev)
+		{
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");
+			ev.target.appendChild(document.getElementById(data));
+		}
+
+		// Click
+		function selectItem(id)
+		{
+			var elem = document.getElementById(id);
+			if (elem.className.indexOf("selected") == -1)
+			{
+				AddClassToElement(elem, "selected");
+			}
+			else
+			{
+				RemoveClassFromElement(elem, "selected");
+			}
+		}
+
+		// buttons
+		function moveLeft()
+		{
+			var elems = document.getElementsByClassName("selected");
+			var length = elems.length
+			//alert("Length: " + length);
+			// move them
+			for (var i = 0; i < length; i++)
+			{
+				document.getElementById("regular").appendChild(elems.item(i));
+			}
+			// now unselect them
+			for (var i = 0; i < length; i++)
+			{
+				RemoveClassFromElement(elems.item(0), "selected");
+			}
+		}
+		// Why does moveLeft use elems.item(i) and moveRight use elems.item(0)?
+		// Only some of them move over otherwise... No idea why that is
+		function moveRight()
+		{
+			var elems = document.getElementsByClassName("selected");
+			var length = elems.length
+			// move them
+			for (var i = 0; i < length; i++)
+			{
+				document.getElementById("rare").appendChild(elems.item(0));
+			}
+			// now unselect them
+			for (var i = 0; i < length; i++)
+			{
+				RemoveClassFromElement(elems.item(0), "selected");
+			}
+		}
+
+		// helpers
+		//This code is jQuery's
+		function AddClassToElement(elem, value)
+		{
+			var rspaces = /\s+/;
+			var classNames = (value || "").split(rspaces);
+			var className = " " + elem.className + " ",
+			setClass = elem.className;
+			for (var c = 0, cl = classNames.length; c < cl; c++)
+			{
+				if (className.indexOf(" " + classNames[c] + " ") < 0)
+				{
+					setClass += " " + classNames[c];
+				}
+			}
+			elem.className = setClass.replace(/^\s+|\s+$/g, '');//trim
+		}
+
+
+		//This code is jQuery's
+		function RemoveClassFromElement(elem, value)
+		{
+			var rspaces = /\s+/;
+			var rclass = /[\n\t]/g
+			var classNames = (value || "").split(rspaces);
+			var className = (" " + elem.className + " ").replace(rclass, " ");
+			for (var c = 0, cl = classNames.length; c < cl; c++)
+			{
+				className = className.replace(" " + classNames[c] + " ", " ");
+			}
+			elem.className = className.replace(/^\s+|\s+$/g, '');//trim
+		}
+
+	</script>
+	<style>
+		/* Put your prototype's CSS here */
+		.box {
+			min-width: 110px;
+			min-height: 210px;
+			padding: 10px;
+			border: 1px solid #aaaaaa;
+		}
+
+		.table {
+			/*width: 300px;*/
+			border: 1px solid;
+			margin: 10px;
+		}
+
+		.selected {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Put your prototype's HTML here -->
+	<header>
+		<h1>Workplan</h1>
+	</header>
+	<main>
+		<table class="table">
+			<tr>
+				<td>
+					<p>Backlog</p>
+					<div id="divBacklog" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<p id="span1" draggable="true" ondragstart="drag(event)">DLG 1</p>
+					</div>
+				</td>
+				<td>
+					<p>Investigating</p>
+					<div id="divInvestigating" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<p id="span2" draggable="true" ondragstart="drag(event)">DLG 2</p>
+					</div>
+				</td>
+				<td>
+					<p>Design</p>
+					<div id="divDesign" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<p id="span3" draggable="true" ondragstart="drag(event)">DLG 3</p>
+					</div>
+				</td>
+				<td>
+					<p>Developing</p>
+					<div id="divDeveloping" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<p id="span4" draggable="true" ondragstart="drag(event)">DLG 4</p>
+					</div>
+				</td>
+				<td>
+					<p>PQA 1</p>
+					<div id="divPQA1" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<p id="span5" draggable="true" ondragstart="drag(event)">DLG 5</p>
+					</div>
+				</td>
+				<td>
+					<p>QA 1</p>
+					<div id="divQA1" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<p id="span6" draggable="true" ondragstart="drag(event)">DLG 6</p>
+					</div>
+				</td>
+				<td>
+					<p>PQA 2</p>
+					<div id="divPQA2" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<p id="span7" draggable="true" ondragstart="drag(event)">DLG 7</p>
+					</div>
+				</td>
+				<td>
+					<p>QA 2</p>
+					<div id="divQA2" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<p id="span8" draggable="true" ondragstart="drag(event)">DLG 8</p>
+					</div>
+				</td>
+				<td>
+					<p>Final</p>
+					<div id="divFinal" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<p id="span9" draggable="true" ondragstart="drag(event)">DLG 9</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</main>
+	<!--<br />-->
+	<!--<img id="drag1" src="dancing-banana.gif" draggable="true" ondragstart="drag(event)" alt="dancing banana" />-->
+</body>
+</html>

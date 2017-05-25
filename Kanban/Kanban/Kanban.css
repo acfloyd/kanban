@@ -1,0 +1,24 @@
+﻿body {
+	font-family: 'Segoe UI', sans-serif;
+}
+
+span {
+	font-style: italic;
+}
+
+.box {
+	min-width: 100px;
+	min-height: 200px;
+	padding: 10px;
+	border: 1px solid #aaaaaa;
+}
+
+.table {
+	/*width: 300px;*/
+	border: 1px solid;
+	margin: 10px;
+}
+
+.selected {
+	color: red;
+}

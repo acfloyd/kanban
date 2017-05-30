@@ -26,10 +26,20 @@ var Greeter = (function () {
         ev.target.appendChild(document.getElementById(data));
     };
     // Buttons
-    //AddNewItem()
-    //{
-    //	alert("Not implemented yet");
-    //}
+    Greeter.prototype.AddNewItem = function () {
+        //alert("Not implemented yet");
+        var div = document.getElementById('divBacklog');
+        var newItem = document.createElement('p');
+        newItem.id = "123456";
+        var value = document.getElementById("newItem").value;
+        if (value !== "")
+            newItem.innerText = value;
+        else
+            newItem.innerText = "???";
+        newItem.draggable = true;
+        newItem.ondragstart = this.drag;
+        div.appendChild(newItem);
+    };
     // helpers
     //This code is jQuery's
     Greeter.prototype.AddClassToElement = function (elem, value) {

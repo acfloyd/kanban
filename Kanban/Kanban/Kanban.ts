@@ -35,11 +35,19 @@
 	}
 
 	// Buttons
-	//AddNewItem()
-	//{
-	//	alert("Not implemented yet");
-
-	//}
+	AddNewItem()
+	{
+		//alert("Not implemented yet");
+		var div = document.getElementById('divBacklog');
+		var newItem = document.createElement('p');
+		newItem.id = "123456";
+		var value = (<HTMLInputElement>document.getElementById("newItem")).value;
+		if (value !== "") newItem.innerText = value
+		else newItem.innerText = "???";
+		newItem.draggable = true;
+		newItem.ondragstart = this.drag;
+		div.appendChild(newItem);
+	}
 
 	// helpers
 	//This code is jQuery's

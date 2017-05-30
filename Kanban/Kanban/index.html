@@ -20,65 +20,67 @@
 			<tr>
 				<td>
 					<p>Backlog</p>
-					<div id="divBacklog" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-						<p id="span1" draggable="true" ondragstart="drag(event)">DLG 1</p>
+					<div id="divBacklog" class="box" ondrop="Greeter.prototype.drop(event)" ondragover="Greeter.prototype.allowDrop(event)">
+						<p id="span1" draggable="true" ondragstart="Greeter.prototype.drag(event)">DLG 1</p>
 					</div>
 				</td>
 				<td>
 					<p>Investigating</p>
-					<div id="divInvestigating" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-						<p id="span2" draggable="true" ondragstart="drag(event)">DLG 2</p>
+					<div id="divInvestigating" class="box" ondrop="Greeter.prototype.drop(event)" ondragover="Greeter.prototype.allowDrop(event)">
+						<p id="span2" draggable="true" ondragstart="Greeter.prototype.drag(event)">DLG 2</p>
 					</div>
 				</td>
 				<td>
 					<p>Design</p>
-					<div id="divDesign" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-						<p id="span3" draggable="true" ondragstart="drag(event)">DLG 3</p>
+					<div id="divDesign" class="box" ondrop="Greeter.prototype.drop(event)" ondragover="Greeter.prototype.allowDrop(event)">
+						<p id="span3" draggable="true" ondragstart="Greeter.prototype.drag(event)">DLG 3</p>
 					</div>
 				</td>
 				<td>
 					<p>Developing</p>
-					<div id="divDeveloping" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-						<p id="span4" draggable="true" ondragstart="drag(event)">DLG 4</p>
+					<div id="divDeveloping" class="box" ondrop="Greeter.prototype.drop(event)" ondragover="Greeter.prototype.allowDrop(event)">
+						<p id="span4" draggable="true" ondragstart="Greeter.prototype.drag(event)">DLG 4</p>
 					</div>
 				</td>
 				<td>
 					<p>PQA 1</p>
-					<div id="divPQA1" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-						<p id="span5" draggable="true" ondragstart="drag(event)">DLG 5</p>
+					<div id="divPQA1" class="box" ondrop="Greeter.prototype.drop(event)" ondragover="Greeter.prototype.allowDrop(event)">
+						<p id="span5" draggable="true" ondragstart="Greeter.prototype.drag(event)">DLG 5</p>
 					</div>
 				</td>
 				<td>
 					<p>QA 1</p>
-					<div id="divQA1" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-						<p id="span6" draggable="true" ondragstart="drag(event)">DLG 6</p>
+					<div id="divQA1" class="box" ondrop="Greeter.prototype.drop(event)" ondragover="Greeter.prototype.allowDrop(event)">
+						<p id="span6" draggable="true" ondragstart="Greeter.prototype.drag(event)">DLG 6</p>
 					</div>
 				</td>
 				<td>
 					<p>PQA 2</p>
-					<div id="divPQA2" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-						<p id="span7" draggable="true" ondragstart="drag(event)">DLG 7</p>
+					<div id="divPQA2" class="box" ondrop="Greeter.prototype.drop(event)" ondragover="Greeter.prototype.allowDrop(event)">
+						<p id="span7" draggable="true" ondragstart="Greeter.prototype.drag(event)">DLG 7</p>
 					</div>
 				</td>
 				<td>
 					<p>QA 2</p>
-					<div id="divQA2" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-						<p id="span8" draggable="true" ondragstart="drag(event)">DLG 8</p>
+					<div id="divQA2" class="box" ondrop="Greeter.prototype.drop(event)" ondragover="Greeter.prototype.allowDrop(event)">
+						<p id="span8" draggable="true" ondragstart="Greeter.prototype.drag(event)">DLG 8</p>
 					</div>
 				</td>
 				<td>
 					<p>Final</p>
-					<div id="divFinal" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-						<p id="span9" draggable="true" ondragstart="drag(event)">DLG 9</p>
+					<div id="divFinal" class="box" ondrop="Greeter.prototype.drop(event)" ondragover="Greeter.prototype.allowDrop(event)">
+						<p id="span9" draggable="true" ondragstart="Greeter.prototype.drag(event)">DLG 9</p>
 					</div>
 				</td>
 			</tr>
 		</table>
 		<div>
-			<button onclick="AddNewItem()">Add New Item to Backlog</button>
+			<label>Item Name: </label>
+			<input id="newItem" type="text" name="ItemName" value="" /><br />
+			<button onclick="Greeter.prototype.AddNewItem()">Add New Item to Backlog</button>
 		</div>
 	</main>
 	<!--<br />-->
-	<!--<img id="drag1" src="dancing-banana.gif" draggable="true" ondragstart="drag(event)" alt="dancing banana" />-->
+	<!--<img id="drag1" src="dancing-banana.gif" draggable="true" ondragstart="Greeter.prototype.drag(event)" alt="dancing banana" />-->
 </body>
 </html>

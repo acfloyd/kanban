@@ -23,21 +23,33 @@ var Greeter = (function () {
     Greeter.prototype.drop = function (ev) {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
+        if (ev.target.id === "divCompleted") {
+            var elem = document.getElementById(data);
+            elem.parentNode.removeChild(elem);
+        }
+        else {
+            ev.target.appendChild(document.getElementById(data));
+        }
+    };
+    Greeter.prototype.Rename = function (ev) {
+        alert("you double clicked on something");
     };
     // Buttons
     Greeter.prototype.AddNewItem = function () {
         //alert("Not implemented yet");
         var div = document.getElementById('divBacklog');
         var newItem = document.createElement('p');
-        newItem.id = "123456";
+        newItem.id = this.guidGenerator();
         var value = document.getElementById("newItem").value;
-        if (value !== "")
+        if (value !== "") {
             newItem.innerText = value;
-        else
+        }
+        else {
             newItem.innerText = "???";
+        }
         newItem.draggable = true;
         newItem.ondragstart = this.drag;
+        this.AddClassToElement(newItem, "item");
         div.appendChild(newItem);
     };
     // helpers
@@ -63,6 +75,12 @@ var Greeter = (function () {
             className = className.replace(" " + classNames[c] + " ", " ");
         }
         elem.className = className.replace(/^\s+|\s+$/g, ''); //trim
+    };
+    Greeter.prototype.guidGenerator = function () {
+        var S4 = function () {
+            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        };
+        return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
     };
     return Greeter;
 }());

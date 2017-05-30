@@ -31,21 +31,35 @@
 	drop(ev) {
 		ev.preventDefault();
 		var data = ev.dataTransfer.getData("text");
-		ev.target.appendChild(document.getElementById(data));
+		if (ev.target.id === "divCompleted") {
+			var elem = document.getElementById(data);
+			elem.parentNode.removeChild(elem);
+		}
+		else {
+			ev.target.appendChild(document.getElementById(data));
+		}
+	}
+
+	Rename(ev) {
+		alert("you double clicked on something");
 	}
 
 	// Buttons
-	AddNewItem()
-	{
+	AddNewItem() {
 		//alert("Not implemented yet");
 		var div = document.getElementById('divBacklog');
 		var newItem = document.createElement('p');
-		newItem.id = "123456";
+		newItem.id = this.guidGenerator();
 		var value = (<HTMLInputElement>document.getElementById("newItem")).value;
-		if (value !== "") newItem.innerText = value
-		else newItem.innerText = "???";
+		if (value !== "") {
+			newItem.innerText = value
+		}
+		else {
+			newItem.innerText = "???";
+		}
 		newItem.draggable = true;
 		newItem.ondragstart = this.drag;
+		this.AddClassToElement(newItem, "item");
 		div.appendChild(newItem);
 	}
 
@@ -75,6 +89,13 @@
 			className = className.replace(" " + classNames[c] + " ", " ");
 		}
 		elem.className = className.replace(/^\s+|\s+$/g, '');//trim
+	}
+
+	guidGenerator() {
+		var S4 = function () {
+			return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+		};
+		return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 	}
 }
 

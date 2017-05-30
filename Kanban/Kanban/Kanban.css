@@ -13,6 +13,15 @@ span {
 	border: 1px solid #aaaaaa;
 }
 
+.section {
+	float: left;
+	margin: 2px;
+}
+
+.after {
+	clear: left;
+}
+
 .table {
 	/*width: 300px;*/
 	border: 1px solid;
@@ -21,4 +30,8 @@ span {
 
 .selected {
 	color: red;
+}
+
+.item {
+	margin: 0px;
 }
